@@ -1,0 +1,34 @@
+10 rem Falling Messeges
+40 dim NAM$(60), N(25)
+50 N=1
+60 cls: key off: width 80:screen 0
+70 input "enter your messege", NAM$
+80 if len(NAM$)>60 the print "messege too long" :goto 70
+90 cls
+100 rem fall routine
+120 N=N+1
+130 if N>5 then N-N+1
+140 if N>10 then N=N+1
+150 in N>15 then N=N+1
+160 if N>20 then N=N+1
+170 if N>25 then goto 240
+180 cls
+190 locateN,  int(40-(len(NAM$)/2))
+200 color int(rnd(1)*7)+1
+210 print NAM$
+for T=1 to 50: next T
+230 goto120
+240 sound 200,.25
+250 for N=16 to 22 step 2
+260 cls
+270 locate N, int (40-len(NAM$)/2))
+280 color int(rnd(1)*7)+1
+290 print NAM$;
+350 sound 200,.25
+360 for T=1 to 100: next T
+370 next N
+400 K$=INKEY$
+405 if K$="" then goto 400
+410 width 80
+415 cls
+420 color 7
